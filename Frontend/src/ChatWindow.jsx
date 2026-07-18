@@ -2,6 +2,7 @@ import "./ChatWindow.css";
 import Chat from "./Chat.jsx";
 import Modal from "./Modal.jsx";
 import { MyContext } from "./MyContext.jsx";
+import { API_BASE_URL } from "./config.js";
 import { useContext, useState, useEffect, useRef } from "react";
 import {ScaleLoader} from "react-spinners";
 
@@ -89,7 +90,7 @@ function ChatWindow() {
         };
 
         try {
-            const response = await fetch("http://localhost:8080/api/chat", options);
+            const response = await fetch(`${API_BASE_URL}/api/chat`, options);
             const res = await response.json();
             setReply(res.reply);
         } catch(err) {
@@ -125,7 +126,7 @@ function ChatWindow() {
 
         const token = localStorage.getItem("token");
         try {
-            await fetch("http://localhost:8080/api/thread", {
+            await fetch(`${API_BASE_URL}/api/thread`, {
                 method: "DELETE",
                 headers: {
                     "Authorization": `Bearer ${token}`
