@@ -1,0 +1,82 @@
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(3px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+}
+
+.modalBox {
+    background-color: var(--bg-secondary);
+    border-radius: 14px;
+    width: 340px;
+    padding: 1.5rem;
+    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.modalHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.modalHeader h3 {
+    font-size: 1.1rem;
+}
+
+.modalHeader i {
+    cursor: pointer;
+    color: var(--text-secondary);
+}
+
+.modalHeader i:hover {
+    color: var(--text-primary);
+}
+
+.modalContent {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.modalContent p {
+    margin: 0.5rem 0;
+}
+
+.modalContent .userInfoRow {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.4rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.dangerButton {
+    margin-top: 1rem;
+    width: 100%;
+    padding: 10px;
+    background-color: #f87171;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.dangerButton:hover {
+    background-color: #ef4444;
+}
+
+.comingSoonBadge {
+    display: inline-block;
+    background-color: var(--bg-hover);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+}

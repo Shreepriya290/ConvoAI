@@ -7,8 +7,13 @@ function Sidebar() {
     const {allThreads, setAllThreads, currThreadId, setNewChat, setPrompt, setReply, setCurrThreadId, setPrevChats} = useContext(MyContext);
 
     const getAllThreads = async () => {
+        const token = localStorage.getItem("token");
         try {
-            const response = await fetch("http://localhost:8080/api/thread");
+            const response = await fetch("http://localhost:8080/api/thread", {
+                headers: {
+                    "Authorization": `Bearer ${token}`
+                }
+            });
             const res = await response.json();
             const filteredData = res.map(thread => ({threadId: thread.threadId, title: thread.title}));
             //console.log(filteredData);
@@ -33,9 +38,14 @@ function Sidebar() {
 
     const changeThread = async (newThreadId) => {
         setCurrThreadId(newThreadId);
+        const token = localStorage.getItem("token");
 
         try {
-            const response = await fetch(`http://localhost:8080/api/thread/${newThreadId}`);
+            const response = await fetch(`http://localhost:8080/api/thread/${newThreadId}`, {
+                headers: {
+                    "Authorization": `Bearer ${token}`
+                }
+            });
             const res = await response.json();
             console.log(res);
             setPrevChats(res);
@@ -47,8 +57,14 @@ function Sidebar() {
     }   
 
     const deleteThread = async (threadId) => {
+        const token = localStorage.getItem("token");
         try {
-            const response = await fetch(`http://localhost:8080/api/thread/${threadId}`, {method: "DELETE"});
+            const response = await fetch(`http://localhost:8080/api/thread/${threadId}`, {
+                method: "DELETE",
+                headers: {
+                    "Authorization": `Bearer ${token}`
+                }
+            });
             const res = await response.json();
             console.log(res);
 
@@ -92,7 +108,7 @@ function Sidebar() {
             </ul>
  
             <div className="sign">
-                <p>By ApnaCollege &hearts;</p>
+                <p>By Shreepriya &hearts;</p>
             </div>
         </section>
     )

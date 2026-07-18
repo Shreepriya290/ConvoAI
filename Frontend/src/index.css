@@ -1,0 +1,30 @@
+:root {
+    --bg-primary: #212121;
+    --bg-secondary: #171717;
+    --bg-tertiary: #2f2f2f;
+    --bg-hover: rgba(180, 180, 180, 0.05);
+    --text-primary: #ececec;
+    --text-secondary: #b4b4b4;
+    --input-bg: rgba(255, 255, 255, 0.05);
+    --border-color: rgba(255, 255, 255, 0.5);
+    --user-bubble: #323232;
+    --dropdown-bg: #323232;
+}
+
+[data-theme="light"] {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f7f7f8;
+    --bg-tertiary: #ececec;
+    --bg-hover: rgba(0, 0, 0, 0.05);
+    --text-primary: #1a1a1a;
+    --text-secondary: #5d5d5d;
+    --input-bg: rgba(0, 0, 0, 0.05);
+    --border-color: rgba(0, 0, 0, 0.15);
+    --user-bubble: #e5e5e5;
+    --dropdown-bg: #ffffff;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
