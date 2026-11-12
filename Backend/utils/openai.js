@@ -1,6 +1,8 @@
 import "dotenv/config";
 
-const getOpenAIAPIResponse = async(messages) => {
+const MODEL = process.env.GROQ_MODEL || "openai/gpt-oss-120b";
+
+const getOpenAIAPIResponse = async (messages) => {
     const options = {
         method: "POST",
         headers: {
@@ -8,7 +10,7 @@ const getOpenAIAPIResponse = async(messages) => {
             "Authorization": `Bearer ${process.env.GROQ_API_KEY}`
         },
         body: JSON.stringify({
-            model: "llama-3.3-70b-versatile",
+            model: MODEL,
             messages: messages.map(m => ({ role: m.role, content: m.content }))
         })
     };
@@ -23,10 +25,10 @@ const getOpenAIAPIResponse = async(messages) => {
         }
 
         return data.choices[0].message.content;
-    } catch(err) {
+    } catch (err) {
         console.log(err);
         return "Sorry, something went wrong.";
     }
-}
+};
 
 export default getOpenAIAPIResponse;
